@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "mangosafe",
+            "script": "npm",
+            "args" : "run run-production"
+        }
+    ]
+}
