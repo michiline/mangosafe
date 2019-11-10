@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { keyframes }from 'styled-components'
 
 const Home = () => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [error, setError] = useState('')
+  useEmail()
   return (
     <Container>
       <CoverContainer img={`${process.env.PUBLIC_URL}/cover.png`}>
@@ -27,15 +32,15 @@ const Home = () => {
               <Column>
                 <InputRow1>
                   <InputLabel>Name</InputLabel>
-                  <Input />
+                  <Input onChange={e => setName(e.target.value)} value={name}/>
                 </InputRow1>
                 <InputRow2>
                   <InputLabel>Email</InputLabel>
-                  <Input />
+                  <Input onChange={e => setEmail(e.target.value)} value={email}/>
                 </InputRow2>
                 <InputRow2>
                   <InputLabel>Message</InputLabel>
-                  <TextArea />
+                  <TextArea onChange={e => setMessage(e.target.value)} value={message}/>
                 </InputRow2>
               </Column>
               <Column>
@@ -59,17 +64,42 @@ const Home = () => {
             <TwoColumnContainer>
               <Column>
                 <InputRow3>
-                  <SubmitButton>Send</SubmitButton>
+                  <ErrorLabel>{error}</ErrorLabel>
+                  <SubmitButton onClick={e => sendEmail({ name, email, message, setName, setEmail, setMessage, setError })}>Send</SubmitButton>
                 </InputRow3>
               </Column>
             </TwoColumnContainer>
-
           </AboutUs>
         </Content>
       </ContentContainer>
       <Footer>Copyrights © 2019. All Rights Reserved by Tornomy Wallet Co. OÜ</Footer>
     </Container>
   )
+}
+// prebacit id u env
+const useEmail = () => {
+  useEffect(() => {
+    try {
+      window.emailjs.init("user_nKCT0FjIs8FAuIDlVSMPv")
+    } catch (err) {
+      console.log(err)
+    }
+  }, [])
+  return (null)
+}
+
+const sendEmail = ({ name, email, message, setName, setEmail, setMessage, setError }) => {
+  if (name.length === 0 || email.length === 0 || message.length === 0 || !email.includes('@')) {
+    setError('Invalid input. Please try again.')
+  } else {
+    window.emailjs.send('yandex', 'mangosafe', {
+      name, email, message
+    })
+    setName('')
+    setEmail('')
+    setMessage('')
+    setError('')
+  }
 }
 
 const Container = styled.div`
@@ -304,11 +334,22 @@ const TextArea = styled.textarea`
   transition: all 0.3s ease-in-out;
 `
 
+const ErrorLabel = styled.p`
+  color: red;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.0125rem;
+  line-height: 1.6;
+  font-family: Roboto;
+  width: calc(100% - 10rem);
+  text-align: center;
+`
+
 const SubmitButton = styled.button`
   outline: none;
   border: none;
   width: 10rem;
-  height: 5rem;
+  height: 4rem;
   border-radius: 4px;
   background-color: #E98246;
   border: 1px solid #2f2f2f;
