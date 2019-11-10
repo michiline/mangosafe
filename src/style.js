@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700|Montserrat:400,500,700|Open+Sans:400,500,700');
+  @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700|Montserrat:400,500,700|Roboto:400,500,700');
   html > body > #root {
     height: min-content;
   }

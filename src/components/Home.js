@@ -27,6 +27,8 @@ const Home = () => {
             <Body12>
                Additionally, Mangosafe is an Estonia-licensed virtual currency wallet service provider (License number FRK001070) which additionally broadens our services and abilities.
             </Body12>
+          </AboutUs>
+          <ContactUs>
             <H22>Contact Us</H22>
             <TwoColumnContainer>
               <Column>
@@ -69,7 +71,7 @@ const Home = () => {
                 </InputRow3>
               </Column>
             </TwoColumnContainer>
-          </AboutUs>
+          </ContactUs>
         </Content>
       </ContentContainer>
       <Footer>Copyrights © 2019. All Rights Reserved by Tornomy Wallet Co. OÜ</Footer>
@@ -122,13 +124,19 @@ const CoverContainer = styled.div`
 `
 
 const H1 = styled.p`
-  font-size: 9rem;
-  font-weight: 100;
-  letter-spacing: -0.15rem;
-  line-height: 1.6;
   font-family: 'Montserrat';
   user-select: none;
   color: #404040;
+  font-size: 6rem;
+  font-weight: 100;
+  letter-spacing: -0.15rem;
+  line-height: 1.6;
+  @media only screen and (min-width: 1050px) {
+    font-size: 9rem;
+    font-weight: 100;
+    letter-spacing: -0.15rem;
+    line-height: 1.6;
+  }
 `
 
 const Subtitle1 = styled.p`
@@ -183,13 +191,23 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
   padding: 3rem;
-  width: 100rem;
+  width: 80%;
+  max-width: 100rem;
 `
 
 const AboutUs = styled.div`
   width: 100%;
   height: min-content;
-  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 3rem;
+`
+
+const ContactUs = styled.div`
+  width: 100%;
+  height: min-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -237,12 +255,14 @@ const Body12 = styled(Body1)`
 
 const TwoColumnContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   height: min-content;
 `
 
 const Column = styled.div`
-  width: 50%;
+  width: 100%;
+  max-width: 40rem;
   display: flex;
   flex-direction: column;
   align-items: center;
