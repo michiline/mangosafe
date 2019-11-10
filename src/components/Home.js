@@ -44,31 +44,21 @@ const Home = () => {
                   <InputLabel>Message</InputLabel>
                   <TextArea onChange={e => setMessage(e.target.value)} value={message}/>
                 </InputRow2>
+                <InputRow3>
+                  <ErrorLabel>{error}</ErrorLabel>
+                  <SubmitButton onClick={e => sendEmail({ name, email, message, setName, setEmail, setMessage, setError })}>Send</SubmitButton>
+                </InputRow3>
               </Column>
               <Column>
                 <Body11>
-                  marin@tornomy.com
+                  info@tornomy.com
                 </Body11>
                 <Body12>
                   Tornomy Wallet Co. OÜ
                 </Body12>
                 <Body12>
-                  Registry code: 14772723
+                  Estonian Registry code: 14772723
                 </Body12>
-                <Body12>
-                  Tartu County Court Registration Department
-                </Body12>
-                <Body12>
-                  Estonia
-                </Body12>
-              </Column>
-            </TwoColumnContainer>
-            <TwoColumnContainer>
-              <Column>
-                <InputRow3>
-                  <ErrorLabel>{error}</ErrorLabel>
-                  <SubmitButton onClick={e => sendEmail({ name, email, message, setName, setEmail, setMessage, setError })}>Send</SubmitButton>
-                </InputRow3>
               </Column>
             </TwoColumnContainer>
           </ContactUs>
@@ -131,7 +121,7 @@ const H1 = styled.p`
   font-weight: 100;
   letter-spacing: -0.15rem;
   line-height: 1.6;
-  @media only screen and (min-width: 1050px) {
+  @media only screen and (min-width: 900px) {
     font-size: 9rem;
     font-weight: 100;
     letter-spacing: -0.15rem;
@@ -140,13 +130,19 @@ const H1 = styled.p`
 `
 
 const Subtitle1 = styled.p`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: 0.0125rem;
   line-height: 1.6;
   font-family: 'Montserrat';
   color: #515151;
   user-select: none;
+  @media only screen and (min-width: 900px) {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.0125rem;
+    line-height: 1.6;
+  }
 `
 
 const sdb04 = keyframes`
@@ -191,8 +187,8 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
   padding: 3rem;
-  width: 80%;
-  max-width: 100rem;
+  width: 90%;
+  max-width: 110rem;
 `
 
 const AboutUs = styled.div`
@@ -202,7 +198,6 @@ const AboutUs = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  padding: 3rem;
 `
 
 const ContactUs = styled.div`
@@ -212,19 +207,24 @@ const ContactUs = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  padding: 3rem;
 `
 
   // box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
 
 const H2 = styled.p`
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: 100;
   letter-spacing: -0.5rem;
   line-height: 1.6;
   font-family: 'Montserrat';
   user-select: none;
   color: #E98246;
+  @media only screen and (min-width: 900px) {
+    font-size: 6rem;
+    font-weight: 100;
+    letter-spacing: -0.5rem;
+    line-height: 1.6;
+  }
 `
 
 const H21 = styled(H2)`
@@ -236,13 +236,19 @@ const H22 = styled(H2)`
 `
 
 const Body1 = styled.p`
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.02rem;
   line-height: 1.4;
   font-family: 'Roboto';
   text-align: justify;
   color: #e0b196;
+  @media only screen and (min-width: 900px) {
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.02rem;
+    line-height: 1.4;
+  }
 `
 
 const Body11 = styled(Body1)`
@@ -262,11 +268,13 @@ const TwoColumnContainer = styled.div`
 
 const Column = styled.div`
   width: 100%;
-  max-width: 40rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media only screen and (min-width: 900px) {
+    width: 50%;
+  }
 `
 
 const InputRow = styled.div`
@@ -292,18 +300,24 @@ const InputRow3 = styled(InputRow)`
 
 const InputLabel = styled.p`
   color: #E98246;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: 0.0125rem;
   line-height: 1.6;
   font-family: Roboto;
   width: 40%;
   padding-left: 1rem;
+  @media only screen and (min-width: 900px) {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.0125rem;
+    line-height: 1.6;
+  }
 `
 
 const Input = styled.input`
   outline: none;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: .009375em;
   border-radius: 4px;
@@ -325,12 +339,15 @@ const Input = styled.input`
   }
   font-family: Roboto;
   transition: all 0.3s ease-in-out;
+  @media only screen and (min-width: 900px) {
+    font-size: 2rem;
+  }
 `
 
 const TextArea = styled.textarea`
   padding: 1rem;
   outline: none;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: .009375em;
   border-radius: 4px;
@@ -352,17 +369,23 @@ const TextArea = styled.textarea`
   }
   font-family: Roboto;
   transition: all 0.3s ease-in-out;
+  @media only screen and (min-width: 900px) {
+    font-size: 2rem;
+  }
 `
 
 const ErrorLabel = styled.p`
   color: red;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: 0.0125rem;
   line-height: 1.6;
   font-family: Roboto;
   width: calc(100% - 10rem);
   text-align: center;
+  @media only screen and (min-width: 900px) {
+    font-size: 2rem;
+  }
 `
 
 const SubmitButton = styled.button`
@@ -384,12 +407,15 @@ const SubmitButton = styled.button`
     transform: translateY(2px);
   }
   font-family: Roboto;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: .009375em;
   transition: background-color 0.3s ease-in-out;
   transition: border 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
+  @media only screen and (min-width: 900px) {
+    font-size: 2rem;
+  }
 `
 
 const Footer = styled.div`
@@ -399,12 +425,15 @@ const Footer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0.025rem;
   line-height: 1.4;
   color: #FAFAFA;
   font-family: Roboto;
+  @media only screen and (min-width: 900px) {
+    font-size: 1.4rem;
+  }
 `
 
 export default Home
