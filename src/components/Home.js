@@ -10,7 +10,10 @@ const Home = () => {
   return (
     <Container>
       <CoverContainer img={`${process.env.PUBLIC_URL}/cover.png`}>
-        <H1>Mangosafe</H1>
+        <CoverRow>
+          <Logo img={{ src: `${process.env.PUBLIC_URL}/logo.png`}} />
+          <H1>Mangosafe</H1>
+        </CoverRow>
         <Subtitle1>FRESH HOMEGROWN IT SOLUTIONS</Subtitle1>
         <ScrollDown />
       </CoverContainer>
@@ -19,13 +22,13 @@ const Home = () => {
           <AboutUs>
             <H21>About Us</H21>
             <Body11>
-              Mangosafe offers in-house developed and third-party software. We want to offer these products as a Software-as-a-Service (SaaS) solution to our clients, either via sale or lease.
+              Mangosafe offers in-house developed and third-party software. We offer these products as Software-as-a-Service (SaaS) solutions to our clients, either via sale or lease.
             </Body11>
             <Body12>
-              Some of the software we offer relates to automated trading strategies, online security monitoring solutions, order matching engine software, solutions for secure storing of cryptocurrency wallets, productivity tools for business software development and other.
+              Some of the software we offer relates to order matching engines, automated trading strategies, online security monitoring, secure storing of cryptocurrency wallets, productivity tools for business software development and related customized solutions.
             </Body12>
             <Body12>
-               Additionally, Mangosafe is an Estonia-licensed virtual currency wallet service provider (License number FRK001070) which additionally broadens our services and abilities.
+               Additionally, Mangosafe is an Estonia-licensed virtual currency wallet service provider (License number FRK001070) which additionally broadens our services and capabilities.
             </Body12>
           </AboutUs>
           <ContactUs>
@@ -113,14 +116,42 @@ const CoverContainer = styled.div`
   justify-content: center;
 `
 
+const CoverRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const Logo = styled.img.attrs(props => ({
+  src: props.img.src
+  }))`
+  object-fit: cover;
+  width: 3rem;
+  margin: 0.5rem;
+  @media only screen and (min-width: 420px) {
+    width: 5rem;
+    margin-right: 1rem;
+  }
+  @media only screen and (min-width: 900px) {
+    width: 10rem;
+    margin-right: 2rem;
+  }
+`
+
 const H1 = styled.p`
   font-family: 'Montserrat';
   user-select: none;
   color: #404040;
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: 100;
   letter-spacing: -0.15rem;
   line-height: 1.6;
+  @media only screen and (min-width: 420px) {
+    font-size: 6rem;
+    font-weight: 100;
+    letter-spacing: -0.15rem;
+    line-height: 1.6;
+  }
   @media only screen and (min-width: 900px) {
     font-size: 9rem;
     font-weight: 100;
@@ -130,13 +161,19 @@ const H1 = styled.p`
 `
 
 const Subtitle1 = styled.p`
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: 0.0125rem;
-  line-height: 1.6;
   font-family: 'Montserrat';
   color: #515151;
   user-select: none;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.0125rem;
+  line-height: 1.5;
+  @media only screen and (min-width: 420px) {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.0125rem;
+    line-height: 1.5;
+  }
   @media only screen and (min-width: 900px) {
     font-size: 2rem;
     font-weight: 500;
@@ -218,7 +255,7 @@ const H2 = styled.p`
   line-height: 1.6;
   font-family: 'Montserrat';
   user-select: none;
-  color: #E98246;
+  color: #52afcc;
   @media only screen and (min-width: 900px) {
     font-size: 6rem;
     font-weight: 100;
@@ -242,7 +279,7 @@ const Body1 = styled.p`
   line-height: 1.4;
   font-family: 'Roboto';
   text-align: justify;
-  color: #e0b196;
+  color: #52afcc;
   @media only screen and (min-width: 900px) {
     font-size: 1.8rem;
     font-weight: 400;
@@ -299,7 +336,7 @@ const InputRow3 = styled(InputRow)`
 `
 
 const InputLabel = styled.p`
-  color: #E98246;
+  color: #52afcc;
   font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: 0.0125rem;
@@ -324,18 +361,18 @@ const Input = styled.input`
   border: none;
   width: 60%;
   height: 4rem;
-  background-color: #E98246;
+  background-color: #52afcc;
   border: 1px solid #2f2f2f;
   color: #2f2f2f;
   padding-left: 1rem;
   paddin-top: 0.5rem;
   &:hover {
-    border: 1px solid #e0b196;
+    border: 1px solid #78c1d7;
   }
   &:focus {
     background-color: #2f2f2f;
-    border: 1px solid #E98246;
-    color: #E98246;
+    border: 1px solid #52afcc;
+    color: #52afcc;
   }
   font-family: Roboto;
   transition: all 0.3s ease-in-out;
@@ -354,18 +391,18 @@ const TextArea = styled.textarea`
   border: none;
   width: 60%;
   height: 12rem;
-  background-color: #E98246;
+  background-color: #52afcc;
   border: 1px solid #2f2f2f;
   color: #2f2f2f;
   padding-left: 1rem;
   paddin-top: 0.5rem;
   &:hover {
-    border: 1px solid #e0b196;
+    border: 1px solid #78c1d7;
   }
   &:focus {
     background-color: #2f2f2f;
-    border: 1px solid #E98246;
-    color: #E98246;
+    border: 1px solid #52afcc;
+    color: #52afcc;
   }
   font-family: Roboto;
   transition: all 0.3s ease-in-out;
@@ -394,13 +431,13 @@ const SubmitButton = styled.button`
   width: 10rem;
   height: 4rem;
   border-radius: 4px;
-  background-color: #E98246;
+  background-color: #52afcc;
   border: 1px solid #2f2f2f;
   color: #2f2f2f;
   &:hover {
     background-color: #2f2f2f;
-    border: 1px solid #E98246;
-    color: #E98246;
+    border: 1px solid #52afcc;
+    color: #52afcc;
     cursor: pointer;
   }
   &:active {
