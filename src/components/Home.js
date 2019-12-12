@@ -126,14 +126,15 @@ const Logo = styled.img.attrs(props => ({
   src: props.img.src
   }))`
   object-fit: cover;
-  width: 3rem;
-  margin: 0.5rem;
+  width: 4rem;
+  margin-right: 0.5rem;
   @media only screen and (min-width: 420px) {
     width: 5rem;
     margin-right: 1rem;
   }
   @media only screen and (min-width: 900px) {
     width: 10rem;
+    margin-bottom: 2rem;
     margin-right: 2rem;
   }
 `
@@ -141,8 +142,8 @@ const Logo = styled.img.attrs(props => ({
 const H1 = styled.p`
   font-family: 'Montserrat';
   user-select: none;
-  color: #404040;
-  font-size: 4rem;
+  color: #232327;
+  font-size: 5rem;
   font-weight: 100;
   letter-spacing: -0.15rem;
   line-height: 1.6;
@@ -162,23 +163,29 @@ const H1 = styled.p`
 
 const Subtitle1 = styled.p`
   font-family: 'Montserrat';
-  color: #515151;
+  color: #23232796;
   user-select: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 0.0125rem;
   line-height: 1.5;
+  margin-top: -1rem;
+  margin-left: 4rem;
   @media only screen and (min-width: 420px) {
     font-size: 1.5rem;
     font-weight: 500;
     letter-spacing: 0.0125rem;
     line-height: 1.5;
+    margin-top: -1rem;
+    margin-left: 6rem;
   }
   @media only screen and (min-width: 900px) {
     font-size: 2rem;
     font-weight: 500;
     letter-spacing: 0.0125rem;
     line-height: 1.6;
+    margin-top: -1rem;
+    margin-left: 11rem;
   }
 `
 
@@ -201,15 +208,15 @@ const ScrollDown = styled.span`
   width: 35px;
   height: 35px;
   margin-left: -12px;
-  border-left: 2px solid #404040;
-  border-bottom: 2px solid #404040;
+  border-left: 2px solid #232327;
+  border-bottom: 2px solid #232327;
   transform: rotate(-45deg);
   animation: ${sdb04} 2s infinite;
   box-sizing: border-box;
 `
 
 const ContentContainer = styled.div`
-  background-color: #404040;
+  background-color: #232327;
   width: 100%;
   height: min-content;
   display: flex;
